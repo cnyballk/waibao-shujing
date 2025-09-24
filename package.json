@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "author": "Depravitys <bo721025@163.com>",
+  "scripts": {
+    "dev": "npm run cleanup && umi dev",
+    "test": "npm run cleanup && umi dev --hot",
+    "cleanup": "trash ./node_modules/.cache && trash ./src/.umi",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run cleanup && npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "5.x",
+    "@cnyballk/full-screen": "^1.0.5",
+    "antd": "^5.27.4",
+    "axios": "^1.12.2",
+    "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.18",
+    "immer": "^10.1.3",
+    "path": "^0.12.7",
+    "umi": "^4.5.0",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "trash-cli": "^6.0.0",
+    "typescript": "^5.0.3"
+  }
+}

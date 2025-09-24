@@ -1,0 +1,117 @@
+.page {
+  height: 1016px;
+  padding: 32px 20px 0;
+  .pageCont {
+    overflow-y: auto;
+    height: 976px;
+    margin-right: 10px;
+    padding: 0px 0px 0 42px;
+    // background: rgba(71, 84, 102, 0.5);
+    &::-webkit-scrollbar { 
+      width: 6px; 
+    }
+    &::-webkit-scrollbar-thumb { 
+      background: rgba(71, 84, 102, 0.5);
+      border-radius: 30px;
+      }
+    &::-webkit-scrollbar-track { 
+      width: 1px;
+    }
+  }
+  .pageList {
+    display: flex;
+    flex-wrap: wrap;
+    // overflow: hidden;
+  }
+  .pageItem {
+    width: 333px;
+    height: 220px;
+    margin-right: 32px;
+    border-radius: 16px;
+    box-shadow: 0px 5px 20px 0px rgba(25, 44, 72, 0.3);
+    background: rgba(237, 244, 250, 1);
+    padding: 12px;
+    margin-bottom: 32px;
+    cursor: pointer;
+    &:nth-child(5n) {
+      margin-right: 0;
+    }
+    &:hover {
+      .itemBg {
+        transform: scale(1.1);
+      }
+    }
+    .itemGroup {
+      padding-top: 44px;
+      .itemGroupIcon {
+        display: block;
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 8px;
+      }
+      .itemGroupTitle {
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+      }
+    }
+    .itemCont {
+      position: relative;
+      border-radius: 8px;
+      height: 196px;
+      overflow: hidden;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(113.48deg, rgba(0, 107, 255, 0) 0%, rgba(0, 107, 255, 0.5) 98.95%);
+        z-index: 2;
+      }
+    }
+    .itemBg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: 1s all;
+    }
+    .itemIcon {
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      width: 66px;
+      height: 60px;
+      z-index: 3;
+    }
+    .itemBot {
+      position: absolute;
+      bottom: 14px;
+      width: 100%;
+      padding-right: 18px;
+      z-index: 4;
+      .itemBotTitle{
+        text-align: right;
+        font-size: zcoolwenyiti;
+        font-size: 28px;
+        line-height: 28px;
+        color: rgba(255, 255, 255, 1);
+        margin-bottom: 4px;
+        span {
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+        }
+      } 
+      .itemBotTime {
+        text-align: right;
+        font-size: 14px;
+        line-height: 16px;
+        color: rgba(255, 255, 255, 1);
+      } 
+    }
+  }
+}
