@@ -1,0 +1,118 @@
+.dashboard-page {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  position: relative;
+  .legend {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .tools {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    padding: 20px 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 12px;
+    background: #fff;
+    .search {
+      display: flex;
+      padding: 6px;
+      align-items: center;
+      gap: 10px;
+      border-radius: 6px;
+      background: #96a1b0;
+      cursor: pointer;
+    }
+    .line {
+      margin: 0 20px;
+      width: 32px;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .scale-wrap {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      .bar {
+        position: relative;
+        display: flex;
+        width: 8px;
+        height: 80px;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 10px;
+        border-radius: 10px;
+        background: #e4e7ed;
+        .bar-dot {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%);
+          width: 11px;
+          height: 11px;
+          aspect-ratio: 1/1;
+          background: #fff;
+          border: 2px solid #4694ff;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .bar-text {
+          color: var(--Black-60, rgba(0, 0, 0, 0.6));
+          font-family: "HarmonyOS Sans SC";
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+      .bar-line {
+        width: 100%;
+        height: 50%;
+        border-radius: 10px;
+        background: #006bff;
+      }
+    }
+    .btns {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      .btn {
+        display: flex;
+        padding: 6px;
+        align-items: center;
+        gap: 10px;
+        border-radius: 6px;
+        background: var(--BrandBlue, #006bff);
+        cursor: pointer;
+      }
+    }
+  }
+}
+.update-btn {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  display: inline-flex;
+  height: 36px;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: var(--BrandBlue, #006bff);
+  color: #fff;
+  font-family: "HarmonyOS Sans SC";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}

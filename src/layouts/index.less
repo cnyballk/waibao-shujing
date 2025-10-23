@@ -1,7 +1,16 @@
 .layout {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1920px;
-  height: 1080px;
+  min-width: 1600px;
+  height: 100%;
+  background: rgba(206, 224, 242, 1);
+  .layout-content {
+    height: calc(100% - 64px);
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(71, 84, 102, 0.5);
+      border-radius: 30px;
+    }
+  }
 }

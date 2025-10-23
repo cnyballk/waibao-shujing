@@ -33,16 +33,16 @@
     position: relative;
     height: 125px;
     padding-bottom: 14px;
-    border-bottom: 1px dotted  rgba(0, 107, 255, 1) ;
+    border-bottom: 1px dotted rgba(0, 107, 255, 1);
     margin-bottom: 30px;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: -152px;
       top: 12px;
       width: 144px;
       height: 104px;
-      background: url('~@/assets/images/icon10-1.png') no-repeat;
+      background: url("~@/assets/images/icon10-1.png") no-repeat;
       background-size: 100% 100%;
     }
     .listCont {
@@ -54,14 +54,14 @@
     display: flex;
     flex-wrap: wrap;
     margin-right: -6px;
-    &::-webkit-scrollbar { 
-      width: 6px; 
+    &::-webkit-scrollbar {
+      width: 6px;
     }
-    &::-webkit-scrollbar-thumb { 
+    &::-webkit-scrollbar-thumb {
       background: rgba(71, 84, 102, 0.5);
       border-radius: 30px;
-      }
-    &::-webkit-scrollbar-track { 
+    }
+    &::-webkit-scrollbar-track {
       width: 1px;
     }
   }
@@ -73,17 +73,18 @@
     border: 1px solid transparent;
     margin-right: 16px;
     &:nth-child(3n) {
-      margin-right: 0;      
+      margin-right: 0;
     }
-    &.listItemNext{
+    &.listItemNext {
       background: rgba(255, 255, 255, 0.8);
     }
-    &.listItemActive,&:hover {
+    &.listItemActive,
+    &:hover {
       border: 1px solid rgba(0, 107, 255, 1);
       background: rgba(255, 255, 255, 1);
       transition: all 0.3s;
-      .listItemImg{
-        background: url('~@/assets/images/icon11-2.png') no-repeat;
+      .listItemImg {
+        background: url("~@/assets/images/icon11-2.png") no-repeat;
         background-size: 100% 100%;
       }
       .listItemTitle {
@@ -91,14 +92,14 @@
       }
     }
 
-    .listItemImg{
+    .listItemImg {
       width: 54px;
       height: 48px;
-      background: url('~@/assets/images/icon11-1.png') no-repeat;
+      background: url("~@/assets/images/icon11-1.png") no-repeat;
       background-size: 100% 100%;
       margin: 12px auto 4px;
     }
-    .listItemTitle{
+    .listItemTitle {
       text-align: center;
       font-size: 16px;
       line-height: 19px;
@@ -114,16 +115,16 @@
     position: relative;
     height: 246px;
     padding-bottom: 14px;
-    border-bottom: 1px dotted  rgba(0, 107, 255, 1) ;
+    border-bottom: 1px dotted rgba(0, 107, 255, 1);
     margin-bottom: 30px;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: -152px;
       top: 12px;
       width: 144px;
       height: 104px;
-      background: url('~@/assets/images/icon10-2.png') no-repeat;
+      background: url("~@/assets/images/icon10-2.png") no-repeat;
       background-size: 100% 100%;
     }
     .listCont {
@@ -134,16 +135,16 @@
     position: relative;
     height: 246px;
     padding-bottom: 14px;
-    border-bottom: 1px dotted  rgba(0, 107, 255, 1) ;
+    border-bottom: 1px dotted rgba(0, 107, 255, 1);
     margin-bottom: 30px;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: -152px;
       top: 12px;
       width: 144px;
       height: 104px;
-      background: url('~@/assets/images/icon10-3.png') no-repeat;
+      background: url("~@/assets/images/icon10-3.png") no-repeat;
       background-size: 100% 100%;
     }
     .listCont {
@@ -155,13 +156,13 @@
     height: 246px;
     padding-bottom: 14px;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: -152px;
       top: 12px;
       width: 144px;
       height: 104px;
-      background: url('~@/assets/images/icon10-4.png') no-repeat;
+      background: url("~@/assets/images/icon10-4.png") no-repeat;
       background-size: 100% 100%;
     }
     .listCont {
@@ -183,7 +184,8 @@
       align-items: center;
       margin-bottom: 4px;
     }
-    .rightTopGroupPrev, .rightTopGroupNext {
+    .rightTopGroupPrev,
+    .rightTopGroupNext {
       width: 32px;
       height: 32px;
       cursor: pointer;
@@ -192,7 +194,7 @@
       font-size: 20px;
       line-height: 32px;
       height: 32px;
-      font-family: 'HarmonyOS Sans SC-700';
+      font-family: "HarmonyOS Sans SC-700";
       width: 190px;
       text-align: center;
       overflow: hidden;
@@ -208,5 +210,47 @@
   }
   .table {
     background: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    .tableTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      .tableTopLeft {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ColorText-100, #000);
+        font-family: "HarmonyOS Sans SC";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .tableTopRight {
+        display: flex;
+      }
+      .tableTopInputWrap {
+        position: relative;
+        > svg {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translateY(-50%);
+        }
+        .tableInput {
+          width: 240px;
+          height: 32px;
+          justify-content: space-between;
+          align-items: center;
+          flex-shrink: 0;
+          border-radius: 16px;
+          background: rgba(0, 107, 255, 0.1);
+          margin-left: 40px;
+        }
+      }
+    }
   }
 }

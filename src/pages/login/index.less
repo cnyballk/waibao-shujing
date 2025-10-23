@@ -1,86 +1,96 @@
-
-
 .login {
-	position: relative;
-	width: 1920px;
-	height: 1080px;
-	display: flex;
-	background: rgba(237, 244, 250, 1);
-	.loginLeft{
-		width: 1270px;
-		height: 1080px;
-		padding-left: 160px;
-		.leftTop{
-			display: flex;
-			align-items: center;
-			padding-top: 60px;
-		}
-		.leftTopLogo{
-			width: 120px;
-			height: 60px;
-			margin-right: 16px;
-		}
-		.leftTopTitle{
-			font-size: 36px;
-			line-height: 42px;
-			height: 42px;
-		}
-		.leftTopDesc{
-			color: rgba(0, 107, 255, 1);
-			font-size: 16px;
-			line-height: 19px;
-			height: 19px;
-		}
-		.leftMiddle{
-			padding-top: 158px;
-			.leftMiddleItem{
-				font-family: 'HarmonyOS Sans SC-300';
-				font-size: 60px;
-				line-height: 90px;
-				&+.leftMiddleItem {
-					margin-bottom: 6px;
-				}
-			}
-		}
-		.leftBottom{
-			position: absolute;
-			left: 160px;
-			bottom: 80px;
-			.leftBottomP{
-				font-size: 20px;
-				line-height: 23px;
-				margin-bottom: 13px;
-			}
-			.leftBottomSpan{
-				color: rgba(0, 107, 255, 1);
-			}
-			.leftBottomEn{
-				font-size: 16px;
-				line-height: 19px;
-				color: rgba(150, 161, 176, 1);
-			}
-		}
-	}
-	.loginRight{
-		width: 650px;
-		height: 1080px;
-		padding: 320px 115px 0;
-		.loginRightTitle {
-			font-size: 32px;
-			line-height: 38px;
-			margin-bottom: 48px;
-		}
-		.formItem {
-			margin-bottom: 24px;
-		}
-		.input {
-			border-radius: 6px;
-			height: 48px;
-			background: #fff;
-			border: 0;
-			padding: 14px 16px;
-			font-size: 16px;
- 			&:-webkit-autofill,
+  position: relative;
+  background-color: #dce9f5;
+  display: flex;
+  min-width: 1600px;
+  height: 100%;
+  .loginLeft {
+    width: 1270px;
+    height: 100%;
+    padding-left: 160px;
+    .loginIcon {
+      position: absolute;
+      top: 230px;
+      left: 440px;
+      width: 450px;
+    }
+    .leftTop {
+      display: flex;
+      align-items: center;
+      padding-top: 60px;
+    }
+    .leftTopLogo {
+      width: 120px;
+      height: 60px;
+      margin-right: 16px;
+    }
+    .leftTopTitle {
+      font-size: 36px;
+      line-height: 42px;
+      height: 42px;
+    }
+    .leftTopDesc {
+      color: rgba(0, 107, 255, 1);
+      font-size: 16px;
+      line-height: 19px;
+      height: 19px;
+    }
+    .leftMiddle {
+      padding-top: 158px;
+      .leftMiddleItem {
+        font-family: "HarmonyOS Sans SC-300";
+        font-size: 60px;
+        line-height: 90px;
+        & + .leftMiddleItem {
+          margin-bottom: 6px;
+        }
+        &:nth-child(1) {
+          text-indent: 1em;
+        }
+        &:nth-child(2) {
+        }
+      }
+    }
+    .leftBottom {
+      position: absolute;
+      left: 160px;
+      bottom: 80px;
+      .leftBottomP {
+        font-size: 20px;
+        line-height: 23px;
+        margin-bottom: 13px;
+      }
+      .leftBottomSpan {
+        color: rgba(0, 107, 255, 1);
+      }
+      .leftBottomEn {
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(150, 161, 176, 1);
+      }
+    }
+  }
+  .loginRight {
+    width: 650px;
+    height: 100%;
+    padding: 320px 115px 0;
+    background-color: #edf4fa;
+    .loginRightTitle {
+      font-size: 32px;
+      line-height: 38px;
+      margin-bottom: 48px;
+    }
+    .formItem {
+      margin-bottom: 24px;
+    }
+    .input {
+      border-radius: 6px;
+      height: 48px;
+      background: #fff;
+      border: 0;
+      padding: 14px 16px;
+      font-size: 16px;
+      &:-webkit-autofill,
       &:-webkit-autofill:hover,
       &:-webkit-autofill:focus,
       &:-webkit-autofill:active {
@@ -91,25 +101,24 @@
         text-transform: none !important; /* 防止文本转换 */
         filter: none !important;
       }
-		}
-		.formGroup {
-			width: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin: -6px 0;
-			.formItem2 {
-				margin-bottom: 0;
-			}
-			.formGroupSpan {
-				color: rgba(0, 107, 255, 1);
-			}
-			
-		}
-		.formBtn {
-			margin-top: 48px;
-			height: 48px;
-			width: 100%;
-		}
-	}
+    }
+    .formGroup {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: -6px 0;
+      .formItem2 {
+        margin-bottom: 0;
+      }
+      .formGroupSpan {
+        color: rgba(0, 107, 255, 1);
+      }
+    }
+    .formBtn {
+      margin-top: 48px;
+      height: 48px;
+      width: 100%;
+    }
+  }
 }

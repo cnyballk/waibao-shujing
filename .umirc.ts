@@ -2,6 +2,9 @@ import { defineConfig } from "umi";
 const path = require('path');
 
 export default defineConfig({
+  outputPath: "./exe/public",
+  history: { type: "hash" },
+  esbuildMinifyIIFE: true,
   routes: [
     { path: "/login", component: "login" , layout: false },
     {
@@ -12,6 +15,7 @@ export default defineConfig({
         { path: '/project', component: '@/pages/project' },
         { path: '/progress', component: '@/pages/progress' },
         { path: '/dashboard', component: '@/pages/dashboard' },
+        { path: '/dataManagement', component: '@/pages/dataManagement' },
         { path: '/personnel', component: '@/pages/personnel' },
         { path: '/user', component: '@/pages/user' },
       ],

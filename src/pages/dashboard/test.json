@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "name": "123",
+  "description": "123",
+  "proxyImages": true,
+  "defaultMap": "map-G0vUoBE6",
+  "defaultPerspective": null,
+  "attributeRelevance": {},
+  "attributes": [
+    {
+      "id": "attr-yfHkiQ6m",
+      "name": "Connection Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "id": "attr-zREuQyBR",
+      "name": "Description",
+      "format": "text",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "none",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "id": "attr-RvVj5gA7",
+      "name": "Element Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": true
+    },
+    {
+      "id": "attr-uYsmg6dv",
+      "name": "Label",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "autocomplete",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "id": "attr-OPBNiSq0",
+      "name": "Loop Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "id": "attr-Y13NWmfT",
+      "name": "Tags",
+      "format": "string",
+      "private": false,
+      "limit": "none",
+      "category": "General",
+      "prompt": "autocomplete",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "elem-0hUwF7lZ",
+      "attributes": {
+        "label": "总体流程图"
+      }
+    },
+    {
+      "id": "elem-wjWzE5lX",
+      "attributes": {
+        "label": "总图"
+      }
+    },
+    {
+      "id": "elem-iuKkbhhK",
+      "attributes": {
+        "label": "标高轴网"
+      }
+    },
+    {
+      "id": "elem-ppJKNk5w",
+      "attributes": {
+        "label": "地面附属"
+      }
+    },
+    {
+      "id": "elem-DQZWn3yR",
+      "attributes": {
+        "label": "主体轮廓尺寸"
+      }
+    },
+    {
+      "id": "elem-Kf4KlFEc",
+      "attributes": {
+        "label": "站台长度"
+      }
+    },
+    {
+      "id": "elem-NScUw3Lg",
+      "attributes": {
+        "label": "车型"
+      }
+    },
+    {
+      "id": "elem-7Ry0ILpT",
+      "attributes": {
+        "label": "标高"
+      }
+    },
+    {
+      "id": "elem-8iGlYlre",
+      "attributes": {
+        "label": "轴线"
+      }
+    },
+    {
+      "id": "elem-6PFjF6Zb",
+      "attributes": {
+        "label": "轴线间距"
+      }
+    },
+    {
+      "id": "elem-S5KPSMRS",
+      "attributes": {
+        "label": "主体数据"
+      }
+    },
+    {
+      "id": "elem-wwJCmRRp",
+      "attributes": {
+        "label": "区间"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "conn-EKNjna52",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-0hUwF7lZ",
+       "target": "elem-wjWzE5lX"
+    },
+    {
+      "id": "conn-giCzvHJo",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-0hUwF7lZ",
+       "target": "elem-iuKkbhhK"
+    },
+    {
+      "id": "conn-b9ja4HrE",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-0hUwF7lZ",
+       "target": "elem-ppJKNk5w"
+    },
+    {
+      "id": "conn-55nezAMk",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-0hUwF7lZ",
+       "target": "elem-DQZWn3yR"
+    },
+    {
+      "id": "conn-0PZQaG9L",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-0hUwF7lZ",
+       "target": "elem-Kf4KlFEc"
+    },
+    {
+      "id": "conn-xFGEHLzh",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-Kf4KlFEc",
+       "target": "elem-NScUw3Lg"
+    },
+    {
+      "id": "conn-rjbfIVTm",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-iuKkbhhK",
+       "target": "elem-wjWzE5lX"
+    },
+    {
+      "id": "conn-AIVfXrVf",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-wjWzE5lX",
+       "target": "elem-7Ry0ILpT"
+    },
+    {
+      "id": "conn-EImaSPfW",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-iuKkbhhK",
+       "target": "elem-8iGlYlre"
+    },
+    {
+      "id": "conn-9M7AmAOF",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-8iGlYlre",
+       "target": "elem-6PFjF6Zb"
+    },
+    {
+      "id": "conn-xEqbSKkG",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-ppJKNk5w",
+       "target": "elem-S5KPSMRS"
+    },
+    {
+      "id": "conn-0I5v6IL0",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-DQZWn3yR",
+       "target": "elem-wwJCmRRp"
+    },
+    {
+      "id": "conn-rCqZudMx",
+      "direction": "undirected",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "source": "elem-wwJCmRRp",
+       "target": "elem-ppJKNk5w"
+    }
+  ],
+  "loops": [],
+  "maps": [
+    {
+      "id": "map-G0vUoBE6",
+      "name": "Untitled map",
+      "description": "",
+      "scale": 1,
+      "center": {
+        "x": 0,
+        "y": 0
+      },
+      "defaultPerspective": "pers-tzDAupBi",
+      "defaultElementBehavior": "floating",
+      "defaultConnectionDirection": "undirected",
+      "elements": [
+        {
+          "id": "node-nY3BXiXS",
+          "position": null,
+          "pinned": false,
+          "style": {},
+          "element": "elem-0hUwF7lZ"
+        },
+        {
+          "id": "node-1173ySYa",
+          "position": {
+            "x": -312,
+            "y": 48.335000000000036
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-wjWzE5lX"
+        },
+        {
+          "id": "node-VftZ4rR8",
+          "position": {
+            "x": -49,
+            "y": 241.33500000000004
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-iuKkbhhK"
+        },
+        {
+          "id": "node-eNUrQ29Z",
+          "position": {
+            "x": -237,
+            "y": -298.66499999999996
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-ppJKNk5w"
+        },
+        {
+          "id": "node-qMOnpoNH",
+          "position": {
+            "x": 319,
+            "y": -271.66499999999996
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-DQZWn3yR"
+        },
+        {
+          "id": "node-cCeO3nLB",
+          "position": {
+            "x": 303,
+            "y": 22.335000000000036
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-Kf4KlFEc"
+        },
+        {
+          "id": "node-iuv4UHfx",
+          "position": {
+            "x": 533,
+            "y": 88.33500000000004
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-NScUw3Lg"
+        },
+        {
+          "id": "node-ewKsXujr",
+          "position": {
+            "x": -665,
+            "y": 78.33500000000004
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-7Ry0ILpT"
+        },
+        {
+          "id": "node-8UIAoGD8",
+          "position": {
+            "x": 16,
+            "y": 430.33500000000004
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-8iGlYlre"
+        },
+        {
+          "id": "node-xN7vbbaL",
+          "position": {
+            "x": 406,
+            "y": 414.33500000000004
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-6PFjF6Zb"
+        },
+        {
+          "id": "node-RO2n2kzR",
+          "position": {
+            "x": -441,
+            "y": -369.66499999999996
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-S5KPSMRS"
+        },
+        {
+          "id": "node-SCxZTa2Z",
+          "position": {
+            "x": 102,
+            "y": -401.66499999999996
+          },
+          "pinned": false,
+          "style": {},
+          "element": "elem-wwJCmRRp"
+        }
+      ],
+      "connections": [
+        {
+          "id": "edge-ImWMjv0X",
+          "style": {},
+          "connection": "conn-EKNjna52"
+        },
+        {
+          "id": "edge-FRct7S5d",
+          "style": {},
+          "connection": "conn-giCzvHJo"
+        },
+        {
+          "id": "edge-8kuVzpzL",
+          "style": {},
+          "connection": "conn-b9ja4HrE"
+        },
+        {
+          "id": "edge-HCUDfePL",
+          "style": {},
+          "connection": "conn-55nezAMk"
+        },
+        {
+          "id": "edge-EoiDW1J5",
+          "style": {},
+          "connection": "conn-0PZQaG9L"
+        },
+        {
+          "id": "edge-wrdb0BgU",
+          "style": {},
+          "connection": "conn-xFGEHLzh"
+        },
+        {
+          "id": "edge-xVJDqr0t",
+          "style": {},
+          "connection": "conn-rjbfIVTm"
+        },
+        {
+          "id": "edge-0iHopPY0",
+          "style": {},
+          "connection": "conn-AIVfXrVf"
+        },
+        {
+          "id": "edge-SIZaHG4k",
+          "style": {},
+          "connection": "conn-EImaSPfW"
+        },
+        {
+          "id": "edge-PloEtp2x",
+          "style": {},
+          "connection": "conn-9M7AmAOF"
+        },
+        {
+          "id": "edge-mDEKvZH3",
+          "style": {},
+          "connection": "conn-xEqbSKkG"
+        },
+        {
+          "id": "edge-LhQfG9uP",
+          "style": {},
+          "connection": "conn-0I5v6IL0"
+        },
+        {
+          "id": "edge-c94Mew87",
+          "style": {},
+          "connection": "conn-rCqZudMx"
+        }
+      ],
+      "loops": []
+    }
+  ],
+  "perspectives": [
+    {
+      "id": "pers-tzDAupBi",
+      "name": "Untitled view",
+      "style": "@settings {\n  template: big-data;\n}\n\n"
+    }
+  ]
+}
