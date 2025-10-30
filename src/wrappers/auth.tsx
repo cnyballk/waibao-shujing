@@ -6,10 +6,8 @@ import { history, Outlet, useLocation } from "umi";
 export default (): any => {
   const { isLogin } = useAuth();
   const location = useLocation();
-  console.log("location: ", location);
   const { selectedProjectId } = appStore((state) => state);
-  console.log("isLogin: ", isLogin);
-
+  console.log("isLogin: ", isLogin)
   if (isLogin) {
     if (projectNav.find((item: any) => item.link === location.pathname)) {
       if (selectedProjectId) {

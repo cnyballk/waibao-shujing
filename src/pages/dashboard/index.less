@@ -98,13 +98,12 @@
 }
 .update-btn {
   position: absolute;
+  z-index: 11;
   right: 40px;
   top: 40px;
-  display: inline-flex;
+ 
   height: 36px;
   padding: 8px 16px;
-  align-items: center;
-  gap: 4px;
   flex-shrink: 0;
   border-radius: 6px;
   background: var(--BrandBlue, #006bff);
@@ -115,4 +114,9 @@
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
+  label{
+    display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  }
 }

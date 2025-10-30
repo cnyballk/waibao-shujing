@@ -1,39 +1,35 @@
 import dayjs from "dayjs";
 import "./index.less";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RcGantt from "rc-gantt";
 import { DatePicker } from "antd";
-interface Data {
-  id: number;
-  name: string;
-  startDate: string;
-  endDate: string;
-  planStartDate?: string;
-  planEndDate: string;
-  actualEndDate?: string;
-  planDays: number;
-  actualDays: number;
-}
-
-function createData(len: number) {
-  const result: Data[] = [];
-  for (let i = 0; i < len; i++) {
-    result.push({
-      id: i,
-      name: "工作事项名称",
-      startDate: dayjs().subtract(-i, "day").format("YYYY-MM-DD"),
-      planEndDate: dayjs().add(i, "day").format("YYYY-MM-DD"),
-      endDate: dayjs().add(i, "day").format("YYYY-MM-DD"),
-      planDays: i,
-      actualDays: i,
-    });
-  }
-  return result;
-}
+import { request } from "@/axios";
+import { appStore } from "@/store/appStore";
 
 const ProgressPage = () => {
-  const [data, setData] = useState(createData(20));
+  const [data, setData] = useState([]);
+  const { selectFlowId, selectedProjectId } = appStore((state) => state);
   console.log("data", data);
+
+  useEffect(() => {
+    request
+      .get("/design/schedule/list", {
+        pageNum: 1,
+        pageSize: 1000,
+        projectId: selectedProjectId,
+      })
+      .then((res) => {
+        console.log("ProgressPage: ", res);
+        const data = res.rows.map((item) => {
+          return {
+            ...item,
+            startDate: item.plannedStartDate,
+            endDate: item.actualEndDate,
+          };
+        });
+        setData(data);
+      });
+  }, []);
   const columns = [
     {
       name: "id",
@@ -41,12 +37,12 @@ const ProgressPage = () => {
       width: 70,
     },
     {
-      name: "name",
+      name: "workItem",
       label: "工作项",
       width: 150,
     },
     {
-      name: "startDate",
+      name: "plannedStartDate",
       label: "计划开始",
       width: 150,
       render: (record) => {
@@ -64,7 +60,7 @@ const ProgressPage = () => {
       },
     },
     {
-      name: "planEndDate",
+      name: "plannedEndDate",
       label: "计划结束",
       width: 150,
       render: (record) => {
@@ -82,7 +78,7 @@ const ProgressPage = () => {
       },
     },
     {
-      name: "endDate",
+      name: "actualEndDate",
       label: "实际结束",
       width: 150,
       render: (record) => {
@@ -100,7 +96,7 @@ const ProgressPage = () => {
       },
     },
     {
-      name: "planDays",
+      name: "plannedDays",
       label: "计划天数",
       width: 90,
     },
@@ -110,18 +106,20 @@ const ProgressPage = () => {
       width: 90,
     },
   ];
-  const handleUpdate = (row: Data, data) => {
+  const handleUpdate = (row: any, data) => {
     console.log("update", row, data);
     setData((prev) => {
       const newList = [...prev];
       const index = newList.findIndex((val) => val.id === row.id);
       newList[index] = { ...row, ...data };
+      request.put('/design/schedule',{ ...row, ...data }).then(res=>{
+      })
       return newList;
     });
   };
   return (
     <div className="progress-page">
-      <RcGantt<Data>
+      <RcGantt<any>
         data={data}
         columns={columns}
         alwaysShowTaskBar={false}
@@ -137,6 +135,9 @@ const ProgressPage = () => {
           handleUpdate(row, {
             startDate: dayjs(startDate).format("YYYY-MM-DD"),
             endDate: dayjs(endDate).format("YYYY-MM-DD"),
+            plannedStartDate: dayjs(startDate).format("YYYY-MM-DD"),
+            actualEndDate: dayjs(endDate).format("YYYY-MM-DD"),
+            actualDays: dayjs(endDate).diff(dayjs(startDate), "day"),
           });
           return true;
         }}

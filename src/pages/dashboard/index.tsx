@@ -4,6 +4,12 @@ import { useRef, useEffect, useState } from "react";
 import "./index.less";
 import { Icon } from "@/icon";
 import test from "./test.json";
+import { useMemoizedFn } from "ahooks";
+import { appStore } from "@/store/appStore";
+import { baseApi, request } from "@/axios";
+import { getLocalStoreConfig } from "@/setting";
+import { cloneDeep } from "lodash-es";
+import { Slider } from "antd";
 const DashboardPage = () => {
   const [options, setOptions] = useState<GraphOptions>({
     autoFit: "view",
@@ -49,9 +55,10 @@ const DashboardPage = () => {
     autoResize: true,
     zoomRange: [0.1, 5],
   });
+  const [zoom, setZoom] = useState(30);
   const graphRef = useRef<G6Graph>();
   const containerRef = useRef<HTMLDivElement>(null);
-
+  const { selectedProjectId } = appStore((state) => state);
   useEffect(() => {
     const graph = new G6Graph({ container: containerRef.current! });
     graphRef.current = graph;
@@ -63,6 +70,32 @@ const DashboardPage = () => {
         graphRef.current = undefined;
       }
     };
+  }, []);
+
+  const getNodes = useMemoizedFn(() => {
+    request.get("/design/project/projectData/" + selectedProjectId).then((res: any) => {
+      const data = cloneDeep(res.data);
+      data.nodes.forEach((node) => {
+        const isSource = data.edges.find((edge) => edge.source === node.id);
+        const isTarget = data.edges.find((edge) => edge.target === node.id);
+        if (isSource && !isTarget) {
+          console.log(node);
+          node.attributes.imgType = 0;
+        } else if (!isSource && isTarget) {
+          node.attributes.imgType = 2;
+        } else {
+          node.attributes.imgType = 1;
+        }
+      });
+      setOptions({
+        ...options,
+        data: data,
+      });
+    });
+  });
+
+  useEffect(() => {
+    getNodes();
   }, []);
 
   useEffect(() => {
@@ -78,28 +111,32 @@ const DashboardPage = () => {
       .catch((error) => console.debug(error));
   }, [options]);
 
+  const handleUpload = useMemoizedFn((e: any) => {
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    return fetch(baseApi + "/design/project/projectData/" + selectedProjectId, {
+      method: "POST",
+      body: formData,
+      headers: {
+        // "Content-Type": "multipart/form-data",
+        authorization: "Bearer " + getLocalStoreConfig("TOKEN"),
+      },
+    }).then((res) => res.json());
+  });
   useEffect(() => {
-    test.nodes.forEach((node) => {
-      const isSource = test.edges.find((edge) => edge.source === node.id);
-      const isTarget = test.edges.find((edge) => edge.target === node.id);
-      if (isSource && !isTarget) {
-        console.log(node);
-        node.attributes.imgType = 0;
-      } else if (!isSource && isTarget) {
-        node.attributes.imgType = 2;
-      } else {
-        node.attributes.imgType = 1;
-      }
-    });
-    setOptions({
-      ...options,
-      data: test,
-    });
-  }, []);
+    // if (!graphRef.current) return;
+    // console.log('graphRef.current: ', graphRef.current.getZoom);
+    // const zoom = graphRef.current.getZoom();
+    // console.log('zoom: ', zoom);
+    // setZoom(zoom * 100);
+  }, [zoom]);
   return (
     <div className="dashboard-page">
       <div className="update-btn">
-        <Icon.UploadIcon></Icon.UploadIcon> 更新知识图谱
+        <label>
+          <Icon.UploadIcon></Icon.UploadIcon> 更新知识图谱
+          <input type="file" hidden accept=".json" onChange={handleUpload} />
+        </label>
       </div>
       <img src={require("@/assets/images/legend.png")} className="legend"></img>
       <div ref={containerRef} style={{ width: "100%", height: "100%" }} />
@@ -121,12 +158,17 @@ const DashboardPage = () => {
         </div>
         <div className="line"></div>
         <div className="scale-wrap">
-          <Icon.JiaIcon />
-          <div className="bar">
+          <div className="zoom-btn" onClick={() => setZoom(Math.min(zoom + 10, 100))}>
+            <Icon.JiaIcon />
+          </div>
+          {/* <div className="bar">
             <div className="bar-line"></div>
             <div className="bar-dot"></div>
+          </div> */}
+          <Slider vertical value={zoom} style={{ height: 100 }} onChange={setZoom} />
+          <div className="zoom-btn" onClick={() => setZoom(Math.max(zoom - 10, 0))}>
+            <Icon.JianIcon />
           </div>
-          <Icon.JianIcon />
           <div className="bar-text">100%</div>
         </div>
       </div>

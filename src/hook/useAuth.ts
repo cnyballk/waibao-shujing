@@ -13,12 +13,12 @@ export function useAuth() {
   // // 模拟从localStorage获取用户信息
   useEffect(() => {
     request.get("/getInfo").then((res: any) => {
-      console.log("res: ", res);
+      console.log("getInfo: ", res);
 			userStore.setState({ user: res.user, roles: res.roles, permissions: res.permissions });
     });
-		request.get("/getRouters").then((res: any) => {
-      console.log("res: ", res);
-    });
+		// request.get("/getRouters").then((res: any) => {
+    //   console.log("getRouters: ", res);
+    // });
   }, []);
 
   // // 登录方法

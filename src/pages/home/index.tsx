@@ -6,6 +6,7 @@ import { request } from "@/axios";
 import { getImageUrl } from "@/utils";
 import { appStore } from "@/store/appStore";
 import { history } from "umi";
+import { useMemoizedFn } from "ahooks";
 
 const data1 = [
   {
@@ -45,11 +46,14 @@ export default function HomePage() {
   const { projectList } = appStore((state) => state);
   useEffect(() => {
     appStore.setState({ selectedProject: null, selectedProjectId: null });
+    getProjectList();
+  }, []);
+  const getProjectList = useMemoizedFn(() => {
     request.get("/design/project/my").then((res: any) => {
       console.log("res: ", res);
       appStore.setState({ projectList: res.rows });
     });
-  }, []);
+  });
   const showModal = () => {
     setIsOpen(true);
   };
@@ -84,7 +88,12 @@ export default function HomePage() {
           })}
         </div>
       </div>
-      {isopen && <ModalCom isopen={isopen} setOpen={(bool: Boolean) => setIsOpen(bool)}></ModalCom>}
+      {isopen && <ModalCom isopen={isopen} setOpen={(bool: Boolean) => {
+        setIsOpen(bool)
+        if (!bool) {
+          getProjectList();
+        }
+      }}></ModalCom>}
     </div>
   );
 }

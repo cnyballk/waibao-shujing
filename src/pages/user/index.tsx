@@ -53,6 +53,7 @@ export default function UserPage() {
   const [page, setPage] = useState(1); // 用于存储当前页码
   const [pageSize, setPageSize] = useState(20); // 用于存储每页显示的行数
   const [total, setTotal] = useState(0); // 用于存储数据总数
+  const [editUserId, setEditUserId] = useState<any>(null);
   const { gangweilist, getGangweiList, bumenList, getBumenList } = appStore((state) => state);
   const columns: TableProps<any>["columns"] = [
     {
@@ -100,12 +101,14 @@ export default function UserPage() {
       dataIndex: "status",
       key: "status",
       width: 216,
-      render: (_, record) => (
-        <>
-          <Switch value={record.status == 1} onChange={(checked) => handChangeSwitch(checked, record)} defaultChecked />
-          {record.status == 1 ? " 已启用" : " 已关闭"}
-        </>
-      ),
+      render: (_, record) => {
+        return (
+          <>
+            <Switch value={record.status == 1} onChange={(checked) => handChangeSwitch(checked, record)} />
+            {record.status == 1 ? " 已启用" : " 已关闭"}
+          </>
+        );
+      },
     },
     {
       title: "操作",
@@ -114,7 +117,9 @@ export default function UserPage() {
       render: (_, record) => (
         <Space size="middle">
           <span style={{ color: "rgba(0, 107, 255, 1)", cursor: "pointer" }}>权限</span>
-          <span style={{ color: "rgba(0, 107, 255, 1)", cursor: "pointer" }}>编辑</span>
+          <span style={{ color: "rgba(0, 107, 255, 1)", cursor: "pointer" }} onClick={() => showModal(record)}>
+            编辑
+          </span>
           <span style={{ color: "rgba(0, 107, 255, 1)", cursor: "pointer" }}>重置密码</span>
           <span style={{ color: "rgba(0, 107, 255, 1)", cursor: "pointer" }}>注销</span>
         </Space>
@@ -134,13 +139,14 @@ export default function UserPage() {
       })
       .then((res: any) => {
         console.log("userlist: ", res);
-        setDataList(res.rows);
+        setDataList(res.rows.filter((item: any) => item.userId > 100));
         setTotal(res.total);
       });
   }, [filter]);
 
-  const showModal = () => {
+  const showModal = (record?: any) => {
     setIsOpen(true);
+    setEditUserId(record ? record.userId : null);
   };
 
   const handleTableChange = (pagination, filters, sorter) => {
@@ -159,7 +165,7 @@ export default function UserPage() {
       });
     setDataList(
       dataList.map((item) => {
-        return item.key === record.key ? { ...item, status: checked ? 1 : 0 } : item;
+        return item.userId === record.userId ? { ...item, status: checked ? 1 : 0 } : item;
       })
     );
   };
@@ -226,7 +232,7 @@ export default function UserPage() {
             pagination={{
               current: page,
               pageSize: pageSize,
-              total:total,
+              total: total,
               showSizeChanger: true,
               showTotal: (total, range) => `共 ${total} 条`,
               onChange: handleTableChange, // 页码改变时的回调函数
@@ -234,7 +240,7 @@ export default function UserPage() {
           />
         </div>
       </div>
-      {isopen && <ModalCom isopen={isopen} setOpen={(bool: Boolean) => setIsOpen(bool)}></ModalCom>}
+      {isopen && <ModalCom isopen={isopen} setOpen={(bool: Boolean) => setIsOpen(bool)} editUserId={editUserId}></ModalCom>}
     </div>
   );
 }

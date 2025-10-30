@@ -1,5 +1,11 @@
 {
   "port": 8080,
   "open": false,
-  "proxy": {}
+  "proxy": {
+    "/api": {
+      "target": "http://192.168.10.130:9109",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api": "" }
+    }
+  }
 }

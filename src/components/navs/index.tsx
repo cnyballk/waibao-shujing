@@ -24,6 +24,7 @@ const homeNav = [
         </defs>
       </svg>
     ),
+    roles: [102, 100],
     link: "/",
   },
 ];
@@ -46,6 +47,7 @@ export const projectNav = [
         </defs>
       </svg>
     ),
+    roles: [102, 100],
     link: "/project",
   },
   {
@@ -59,6 +61,7 @@ export const projectNav = [
         />
       </svg>
     ),
+    roles: [102, 100],
     link: "/dataManagement",
   },
   {
@@ -84,6 +87,7 @@ export const projectNav = [
         </defs>
       </svg>
     ),
+    roles: [102, 100],
     link: "/progress",
   },
   {
@@ -97,6 +101,7 @@ export const projectNav = [
         />
       </svg>
     ),
+    roles: [102, 100],
     link: "/dashboard",
   },
   {
@@ -114,6 +119,7 @@ export const projectNav = [
         />
       </svg>
     ),
+    roles: [102, 100],
     link: "/personnel",
   },
 ];
@@ -131,6 +137,7 @@ const userManager = {
       />
     </svg>
   ),
+  roles: [101, 100],
   link: "/user",
 };
 

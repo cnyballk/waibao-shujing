@@ -29,17 +29,11 @@ export default defineConfig({
     .test(/.otf$|.ttf$|.webm$|.glb$|.hdr$/)
     .type('asset');
   },
-  //  proxy: {
-  //   '/dpi': {  // 接口代理IP
-  //     target: 'http://120.24.215.84:8080/',
-  //     changeOrigin: true,
-  //     pathRewrite: { '^/dpi': '' },
-  //   },
-  //   '/dws': {  // 接口代理IP
-  //     target: 'ws://120.24.215.84:8080/ws/ws',
-  //     changeOrigin: true,
-  //     ws: true,
-  //     pathRewrite: { '^/dws': '' },
-  //   },
-  // },
+   proxy: {
+    '/api': { 
+      target: 'http://202.104.149.204:9109',
+      changeOrigin: true,
+      pathRewrite: { '^/api': '' },
+    },
+  },
 });

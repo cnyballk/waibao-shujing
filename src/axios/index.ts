@@ -5,7 +5,8 @@ import axios, { AxiosRequestConfig, Method } from "axios";
 import { isArray } from "lodash-es";
 import { history } from "umi";
 
-export const baseApi = "http://202.104.149.204:9109";
+export const baseApi = "/api";
+// export const baseApi = "http://202.104.149.204:9109";
 
 export const service = axios.create({
   baseURL: baseApi,
@@ -47,7 +48,6 @@ async function apiAxios(method: Method, url: string, options: AxiosRequestConfig
         reject(data);
       } else {
         resolve(result || data);
-        console.log("result || data: ", result || data);
       }
     } catch (error) {
       reject(error);

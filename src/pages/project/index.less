@@ -42,9 +42,15 @@
         }
       }
     }
-    .tuopu{
+    .tuopu {
       padding-left: 300px;
-      padding-top:30px;
+      padding-top: 30px;
+      .rect {
+        cursor: pointer;
+        & + rect,& + rect + rect,& + rect + rect + g,& + rect + rect + text{
+          pointer-events: none;
+        }
+      }
     }
   }
 }
